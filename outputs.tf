@@ -5,3 +5,6 @@
 #output "instance_arn" {
 #  value = aws_instance.web.arn
 #}
+output "selected_region" {
+  value = aws_region.current.name
+}
