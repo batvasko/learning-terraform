@@ -22,6 +22,6 @@ resource "aws_instance" "web" {
   # availability_zone = "eu-west-1a"  # Explicitly set the desired zone
 
   tags = {
-    Name = "HelloWorld"
+    Name = "Learning Terraform 01"
   }
 }
