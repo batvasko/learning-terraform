@@ -13,5 +13,5 @@ variable "instance_type" {
 variable "az_1a" {
   description = "availability zone 1"
   type        = string
-  default     = "eu-west-1"
+  default     = "eu-west-1a"
 }
