@@ -48,14 +48,14 @@ resource "aws_instance" "blog" {
   vpc_security_group_ids = [module.blog_sg.security_group_id]
 
   tags = {
-    Name = "Learning Terraform 03"
+    Name = "Learning Terraform 04"
   }
 }
 
 
 module "blog_alb" {
   source  = "terraform-aws-modules/alb/aws"
-  version = "~> 8.0"
+  version = "~> 9.0"
 
   name = "blog-alb"
 
