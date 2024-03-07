@@ -4,14 +4,42 @@ variable "instance_type" {
   # availability_zone  = "eu-west-1a"  # Explicitly set the desired zone
 }
 
-#variable "instance_type" {
-#  description = "Value of the Name tag for the EC2 instance type"
-#  type        = string
-#  default     = "t3.nano"
-#}
+variable "ami_filter" {
+  description = "Name filter and owner for AMI"
 
-#variable "az_1a" {
-#  description = "availability zone 1"
-#  type        = string
-#  default     = "eu-west-1a"
-#}
+  type = object ({
+    name = string
+    owner = string
+  })
+
+  default = {
+    name = "bitnami-tomcat-*-x86_64-hvm-ebs-nami"
+    owners = "979382823631" # Bitnami 
+  }
+}
+
+
+variable "environment" {
+  description = "Development Environment"
+
+  type = object ({
+    name           = string
+    network_prefix = string
+  })
+  
+  default = {
+    name           = "dev"
+    network_prefix = "10.0"
+  }
+}
+
+
+variable "asg_min_size" {
+  description = "Minimum number of instances in the ASG"
+  default     = 1
+}
+
+variable "asg_max_size" {
+  description = "Maximum number of instances in the ASG"
+  default     = 2
+}
